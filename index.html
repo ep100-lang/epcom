@@ -11,18 +11,23 @@
   <title>國立花蓮高工 學習歷程引導寫作頁</title>
   <style>
     :root {
-      --bg: #f6f3ee;
-      --paper: #fffdf9;
-      --paper-soft: #fbf7ef;
-      --ink: #263238;
-      --muted: #687276;
-      --line: #ddd4c8;
-      --sage: #8fa99b;
-      --sage-dark: #5f7f70;
-      --sand: #decfb9;
-      --shadow: 0 18px 45px rgba(73, 63, 50, 0.12);
+      --bg: #f6f7f3;
+      --card: #ffffff;
+      --soft: #f4f7f1;
+      --soft-2: #f7efe5;
+      --ink: #243033;
+      --muted: #6e7b7d;
+      --line: #dfe6df;
+      --green: #7da08e;
+      --green-dark: #4f7463;
+      --green-soft: #eaf3ed;
+      --cream: #fff8ec;
+      --blue-soft: #eaf3f7;
+      --rose-soft: #f8e9e4;
+      --shadow: 0 18px 44px rgba(72, 84, 76, 0.12);
       --radius-xl: 28px;
       --radius-lg: 20px;
+      --radius-md: 14px;
     }
 
     * { box-sizing: border-box; }
@@ -31,579 +36,491 @@
       margin: 0;
       font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;
       color: var(--ink);
+      line-height: 1.75;
       background:
-        radial-gradient(circle at 12% 10%, rgba(143, 169, 155, 0.22), transparent 28%),
-        radial-gradient(circle at 88% 3%, rgba(184, 143, 104, 0.16), transparent 25%),
-        linear-gradient(135deg, #f8f5ef 0%, #eef3ef 48%, #f7efe8 100%);
+        radial-gradient(circle at 8% 7%, rgba(125, 160, 142, 0.22), transparent 24%),
+        radial-gradient(circle at 90% 4%, rgba(234, 243, 247, 0.95), transparent 29%),
+        radial-gradient(circle at 92% 78%, rgba(248, 233, 228, 0.85), transparent 31%),
+        linear-gradient(135deg, #fbfaf5 0%, #eef6f0 48%, #fff8ee 100%);
       min-height: 100vh;
-      line-height: 1.8;
     }
 
-    header {
-      max-width: 1280px;
+    .page-header {
+      max-width: 1480px;
       margin: 0 auto;
-      padding: 42px 24px 18px;
+      padding: 32px 22px 14px;
     }
 
     .hero {
-      background: rgba(255, 253, 249, 0.88);
-      border: 1px solid rgba(221, 212, 200, 0.8);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow);
-      padding: 34px;
       position: relative;
       overflow: hidden;
+      padding: 30px;
+      border-radius: var(--radius-xl);
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(223, 230, 223, 0.96);
+      box-shadow: var(--shadow);
     }
 
     .hero::after {
       content: "";
       position: absolute;
+      width: 260px;
+      height: 260px;
+      top: -105px;
       right: -80px;
-      top: -80px;
-      width: 240px;
-      height: 240px;
       border-radius: 50%;
-      background: rgba(143, 169, 155, 0.24);
-      z-index: 0;
+      background: rgba(125, 160, 142, 0.18);
     }
 
     .hero > * { position: relative; z-index: 1; }
 
     .developer-badge {
       display: inline-flex;
-      align-items: center;
-      margin-bottom: 16px;
-      padding: 7px 12px;
+      margin-bottom: 13px;
+      padding: 6px 12px;
       border-radius: 999px;
-      background: rgba(143, 169, 155, 0.18);
-      border: 1px solid rgba(95, 127, 112, 0.22);
-      color: #526f63;
-      font-size: 0.86rem;
-      font-weight: 700;
+      background: var(--green-soft);
+      border: 1px solid rgba(79, 116, 99, 0.18);
+      color: var(--green-dark);
+      font-size: 0.85rem;
+      font-weight: 800;
       letter-spacing: 0.04em;
     }
 
     h1 {
-      margin: 0 0 14px;
-      font-size: clamp(2rem, 4vw, 3.3rem);
-      letter-spacing: 0.04em;
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3.25rem);
       line-height: 1.25;
+      letter-spacing: 0.04em;
     }
 
-    .subtitle {
-      max-width: 980px;
-      color: var(--muted);
-      font-size: 1.05rem;
+    .intro {
+      max-width: 1080px;
       margin: 0;
+      color: var(--muted);
+      font-size: 1.02rem;
     }
 
-    .main-layout {
-      max-width: 1280px;
+    .workspace {
+      max-width: 1480px;
       margin: 0 auto;
-      padding: 20px 24px 48px;
+      padding: 16px 22px 44px;
       display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
-      gap: 24px;
+      grid-template-columns: minmax(320px, 0.95fr) minmax(340px, 0.95fr) minmax(320px, 0.85fr);
+      gap: 18px;
       align-items: start;
     }
 
     .panel {
-      background: rgba(255, 253, 249, 0.92);
-      border: 1px solid rgba(221, 212, 200, 0.86);
       border-radius: var(--radius-xl);
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(223, 230, 223, 0.96);
       box-shadow: var(--shadow);
       overflow: hidden;
     }
 
-    .panel-header {
-      padding: 22px 26px;
-      border-bottom: 1px solid var(--line);
-      background: rgba(255, 250, 242, 0.76);
-    }
-
-    .panel-header h2 {
-      margin: 0;
-      font-size: 1.35rem;
-    }
-
-    .panel-header p {
-      margin: 8px 0 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .form-panel { padding: 10px 0 24px; }
-
-    details.section {
-      border-bottom: 1px solid rgba(221, 212, 200, 0.72);
-    }
-
-    details.section:last-child { border-bottom: 0; }
-
-    summary {
-      cursor: pointer;
-      list-style: none;
-      padding: 22px 26px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      user-select: none;
-    }
-
-    summary::-webkit-details-marker { display: none; }
-
-    .section-title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 700;
-      font-size: 1.08rem;
-    }
-
-    .section-number {
-      width: 34px;
-      height: 34px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      background: var(--sage);
-      color: white;
-      font-weight: 800;
-      font-size: 0.92rem;
-      box-shadow: 0 8px 18px rgba(95, 127, 112, 0.22);
-      flex: 0 0 auto;
-    }
-
-    .chevron {
-      color: var(--sage-dark);
-      font-weight: 800;
-      transition: transform 0.2s ease;
-    }
-
-    details[open] .chevron { transform: rotate(90deg); }
-
-    .questions {
-      padding: 0 26px 28px;
-      display: grid;
-      gap: 18px;
-    }
-
-    .field {
-      background: rgba(246, 243, 238, 0.72);
-      border: 1px solid rgba(221, 212, 200, 0.92);
-      border-radius: var(--radius-lg);
-      padding: 16px;
-    }
-
-    label {
-      display: block;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: #324045;
-    }
-
-    .hint {
-      display: block;
-      color: var(--muted);
-      font-weight: 400;
-      font-size: 0.9rem;
-      margin-top: 3px;
-    }
-
-    input, textarea {
-      width: 100%;
-      border: 1px solid rgba(143, 169, 155, 0.55);
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.96);
-      color: var(--ink);
-      font: inherit;
-      padding: 12px 14px;
-      outline: none;
-    }
-
-    textarea {
-      min-height: 92px;
-      resize: vertical;
-    }
-
-    input:focus, textarea:focus {
-      border-color: var(--sage-dark);
-      box-shadow: 0 0 0 4px rgba(143, 169, 155, 0.16);
-      background: #fff;
-    }
-
-    /* 右側即時文字畫面：這整塊就是右側即時生成區 */
-    .live-preview-panel {
+    .panel.sticky {
       position: sticky;
-      top: 20px;
-      max-height: calc(100vh - 40px);
+      top: 16px;
+      max-height: calc(100vh - 32px);
       display: flex;
       flex-direction: column;
     }
 
-    .live-preview-body {
-      padding: 22px;
+    .panel-head {
+      padding: 19px 20px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(250, 252, 248, 0.88);
+    }
+
+    .panel-head h2 {
+      margin: 0;
+      font-size: 1.22rem;
+      letter-spacing: 0.02em;
+    }
+
+    .panel-head p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .scroll-area {
       overflow: auto;
+      padding: 16px;
     }
 
-    .preview-card {
-      background: var(--paper);
-      border: 1px solid rgba(221, 212, 200, 0.9);
-      border-radius: var(--radius-lg);
-      padding: 18px;
-      margin-bottom: 16px;
-      box-shadow: 0 10px 24px rgba(73, 63, 50, 0.06);
+    .part-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 7px;
+      padding: 14px 14px 0;
+      background: rgba(250, 252, 248, 0.88);
     }
 
-    .preview-card h3 {
-      margin: 0 0 10px;
-      font-size: 1.03rem;
+    .tab-btn {
+      border: 1px solid rgba(125, 160, 142, 0.22);
+      background: #fff;
+      color: var(--green-dark);
+      border-radius: 999px;
+      padding: 8px 8px;
+      cursor: pointer;
+      font-weight: 900;
+      font-size: 0.86rem;
+    }
+
+    .tab-btn.active {
+      background: var(--green-dark);
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(79, 116, 99, 0.18);
+    }
+
+    .part-form { display: none; }
+    .part-form.active { display: block; }
+
+    .part-title {
+      margin: 0 0 12px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      font-weight: 900;
+    }
+
+    .field {
+      padding: 14px;
+      margin-bottom: 13px;
+      border-radius: 18px;
+      background: rgba(246, 247, 243, 0.84);
+      border: 1px solid rgba(223, 230, 223, 0.96);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 900;
+      color: #2f3d40;
+    }
+
+    .hint {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 400;
+    }
+
+    input, textarea {
+      width: 100%;
+      border: 1px solid rgba(125, 160, 142, 0.48);
+      border-radius: 14px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      padding: 11px 12px;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--green-dark);
+      box-shadow: 0 0 0 4px rgba(125, 160, 142, 0.15);
+    }
+
+    .live-card, .template-card, .model-card {
+      border-radius: 18px;
+      border: 1px solid rgba(223, 230, 223, 0.96);
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 14px;
+      box-shadow: 0 10px 22px rgba(72, 84, 76, 0.06);
+    }
+
+    .live-card h3, .template-card h3, .model-card h3 {
+      margin: 0 0 9px;
+      font-size: 1rem;
       display: flex;
-      align-items: center;
       gap: 8px;
+      align-items: center;
     }
 
     .dot {
       width: 10px;
       height: 10px;
-      border-radius: 999px;
-      background: var(--sage);
+      border-radius: 50%;
+      background: var(--green);
       flex: 0 0 auto;
     }
 
-    .preview-text {
+    .badge {
+      display: inline-flex;
+      margin-bottom: 8px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+    }
+
+    .badge.live { background: var(--green-soft); color: var(--green-dark); }
+    .badge.template { background: var(--blue-soft); color: #4e7180; }
+    .badge.model { background: var(--rose-soft); color: #8a5d55; }
+
+    .output, .template-text, .model-text {
       margin: 0;
       white-space: pre-wrap;
-      color: #344246;
-      font-size: 0.98rem;
-      padding: 12px 14px;
       border-radius: 14px;
-      background: rgba(255, 250, 242, 0.72);
-      border: 1px solid rgba(221, 212, 200, 0.72);
+      padding: 13px;
+      font-size: 0.94rem;
+      line-height: 1.72;
+    }
+
+    .output {
+      background: var(--cream);
+      border: 1px solid rgba(233, 220, 200, 0.9);
+      color: #334246;
+    }
+
+    .template-text {
+      background: rgba(234, 243, 247, 0.45);
+      border: 1px solid rgba(78, 113, 128, 0.18);
+      color: #51666d;
+    }
+
+    .model-text {
+      background: rgba(125, 160, 142, 0.09);
+      border: 1px solid rgba(125, 160, 142, 0.22);
+      color: #53605c;
     }
 
     .placeholder {
       color: #9a8d7e;
-      background: rgba(222, 207, 185, 0.28);
-      border-radius: 8px;
+      background: rgba(233, 220, 200, 0.48);
+      border-radius: 7px;
       padding: 0 4px;
-    }
-
-    .example-box {
-      margin-top: 14px;
-      padding: 14px 15px;
-      border-radius: 16px;
-      background: rgba(143, 169, 155, 0.1);
-      border: 1px solid rgba(143, 169, 155, 0.22);
-      color: #53605c;
-      font-size: 0.9rem;
-    }
-
-    .example-title {
-      display: inline-flex;
-      align-items: center;
-      margin-bottom: 8px;
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: rgba(95, 127, 112, 0.14);
-      color: #4f6f62;
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-    }
-
-    .example-box p {
-      margin: 0;
-      line-height: 1.75;
     }
 
     .actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      padding: 16px 22px 22px;
+      gap: 9px;
+      padding: 14px 16px 16px;
       border-top: 1px solid var(--line);
-      background: rgba(255, 250, 242, 0.76);
+      background: rgba(250, 252, 248, 0.88);
     }
 
-    button {
+    button.action {
       border: 0;
       border-radius: 999px;
-      padding: 11px 17px;
+      padding: 10px 15px;
       font: inherit;
-      font-weight: 700;
+      font-weight: 900;
       cursor: pointer;
     }
 
-    .primary {
-      background: var(--sage-dark);
-      color: white;
-      box-shadow: 0 10px 20px rgba(95, 127, 112, 0.22);
-    }
-
-    .secondary {
-      background: #efe7dc;
-      color: #5f5147;
-    }
+    .primary { background: var(--green-dark); color: #fff; }
+    .secondary { background: #edf0e9; color: #53605c; }
 
     .final-section {
-      max-width: 1280px;
-      margin: 0 auto 54px;
-      padding: 0 24px;
+      max-width: 1480px;
+      margin: 0 auto 52px;
+      padding: 0 22px;
     }
 
     .final-card {
-      background: rgba(255, 253, 249, 0.92);
-      border: 1px solid rgba(221, 212, 200, 0.86);
+      padding: 24px;
       border-radius: var(--radius-xl);
+      background: rgba(255, 255, 255, 0.90);
+      border: 1px solid rgba(223, 230, 223, 0.96);
       box-shadow: var(--shadow);
-      padding: 26px;
     }
 
-    .final-card h2 {
-      margin: 0 0 8px;
-      font-size: 1.4rem;
-    }
+    .final-card h2 { margin: 0 0 8px; font-size: 1.38rem; }
+    .final-card .guide { margin: 0 0 14px; color: var(--muted); }
 
-    .guide {
-      margin: 0 0 16px;
-      color: var(--muted);
-    }
-
-    /* 網頁下方即時完整合併內容 */
     .final-output {
-      min-height: 170px;
-      background: #fffdf9;
-      border: 1px dashed rgba(95, 127, 112, 0.65);
-      border-radius: var(--radius-lg);
-      padding: 18px;
+      min-height: 180px;
       white-space: pre-wrap;
-      color: #344246;
-    }
-
-    .final-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .small-note {
-      color: var(--muted);
-      font-size: 0.9rem;
-      margin-top: 10px;
+      padding: 18px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px dashed rgba(79, 116, 99, 0.62);
+      color: #334246;
     }
 
     .site-footer {
-      max-width: 1280px;
-      margin: -28px auto 44px;
-      padding: 0 24px;
+      max-width: 1480px;
+      margin: -28px auto 42px;
+      padding: 0 22px;
       color: #6f6258;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       text-align: center;
     }
 
     .site-footer p {
       margin: 0;
-      padding: 14px 18px;
+      padding: 13px 16px;
       border-radius: 999px;
-      background: rgba(255, 253, 249, 0.76);
-      border: 1px solid rgba(221, 212, 200, 0.7);
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(223, 230, 223, 0.90);
     }
 
-    .site-footer strong { color: #4f6f62; }
+    .site-footer strong { color: var(--green-dark); }
 
     .toast {
       position: fixed;
       left: 50%;
-      bottom: 24px;
-      transform: translateX(-50%) translateY(20px);
+      bottom: 22px;
+      transform: translateX(-50%) translateY(18px);
       opacity: 0;
       pointer-events: none;
-      background: rgba(38, 50, 56, 0.92);
-      color: white;
-      padding: 12px 18px;
+      background: rgba(36, 48, 51, 0.94);
+      color: #fff;
+      padding: 11px 17px;
       border-radius: 999px;
       box-shadow: var(--shadow);
-      transition: opacity 0.22s ease, transform 0.22s ease;
+      transition: opacity 0.2s ease, transform 0.2s ease;
       z-index: 100;
     }
 
-    .toast.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    @media (max-width: 1180px) {
+      .workspace {
+        grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
+      }
+      .model-panel {
+        grid-column: 1 / -1;
+        position: static !important;
+        max-height: none !important;
+      }
     }
 
-    @media (max-width: 980px) {
-      .main-layout { grid-template-columns: 1fr; }
-      .live-preview-panel {
-        position: static;
-        max-height: none;
-      }
+    @media (max-width: 860px) {
+      .workspace { grid-template-columns: 1fr; }
+      .panel.sticky { position: static; max-height: none; }
     }
 
     @media (max-width: 640px) {
-      header, .main-layout, .final-section, .site-footer {
-        padding-left: 14px;
-        padding-right: 14px;
-      }
-
-      .hero, .final-card { padding: 22px; }
-      .panel-header, summary, .questions {
-        padding-left: 18px;
-        padding-right: 18px;
-      }
-
+      .page-header, .workspace, .final-section, .site-footer { padding-left: 14px; padding-right: 14px; }
+      .hero, .final-card { padding: 20px; }
+      .part-tabs { grid-template-columns: repeat(2, 1fr); }
       .site-footer p { border-radius: 18px; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <section class="hero" aria-labelledby="page-title">
-      <div class="developer-badge" aria-label="開發者資訊">開發者：國立花蓮高工 柯貞伊老師</div>
-      <h1 id="page-title">國立花蓮高工 學習歷程引導寫作頁</h1>
-      <p class="subtitle">
-        請同學根據自己想要做成學習歷程的課程或活動成果，回答下列問題，畫面右邊會即時出現你目前文字的合成果。請同學在完成問題回答之後，再回過頭去檢視自己的文字敘述，讀一讀，看是不是流暢的。溫馨提醒，請點開 Word、Google 文件、Canva 等你熟悉的編輯軟體，記得上傳文字與你剛剛得到的文字組合，便可以產生一個適合你的學習歷程作品。
-      </p>
+  <header class="page-header">
+    <section class="hero">
+      <div class="developer-badge">開發者：國立花蓮高工 柯貞伊老師</div>
+      <h1>國立花蓮高工 學習歷程引導寫作頁</h1>
+      <p class="intro">請同學根據自己想要做成學習歷程的課程或活動成果，回答下列問題，畫面右邊會即時出現你目前文字的合成果。請同學在完成問題回答之後，再回過頭去檢視自己的文字敘述，讀一讀，看是不是流暢的。溫馨提醒，請點開 Word、Google 文件、Canva 等你熟悉的編輯軟體，記得上傳文字與你剛剛得到的文字組合，便可以產生一個適合你的學習歷程作品。</p>
     </section>
   </header>
 
-  <main class="main-layout">
-    <section class="panel" aria-label="左側填答區">
-      <div class="panel-header">
-        <h2>左側填答引導區</h2>
-        <p>照著問題慢慢回答，不用一次寫得很漂亮。先把真實經驗寫出來，再回頭修改句子。</p>
+  <main class="workspace">
+    <section class="panel">
+      <div class="panel-head">
+        <h2>左側｜依序回答問題</h2>
+        <p>切換第一～第四部分，把答案寫進框框。右邊會同步產生文章。</p>
       </div>
+      <div class="part-tabs" aria-label="切換填答部分">
+        <button class="tab-btn active" type="button" data-tab="1">第一部分</button>
+        <button class="tab-btn" type="button" data-tab="2">第二部分</button>
+        <button class="tab-btn" type="button" data-tab="3">第三部分</button>
+        <button class="tab-btn" type="button" data-tab="4">第四部分</button>
+      </div>
+      <div class="scroll-area">
+        <section class="part-form active" data-part="1">
+          <h3 class="part-title">第一部分：課程／活動基本資料與背景</h3>
+          <div class="field"><label for="q1">問題1：我想要拿來製作學習歷程的課程／活動名稱是<span class="hint">例：簡報製作課、專題實作、校外參訪</span></label><input id="q1" data-q="1" type="text" placeholder="請輸入課程／活動名稱"></div>
+          <div class="field"><label for="q2">問題2：這個課程／活動的指導老師是<span class="hint">例：小米老師、國文老師、專題老師</span></label><input id="q2" data-q="2" type="text" placeholder="請輸入指導老師"></div>
+          <div class="field"><label for="q3">問題3：這個課程／活動發生的時間／持續期間是<span class="hint">例：這學期、5月10日～5月20日、整個上學期</span></label><input id="q3" data-q="3" type="text" placeholder="請輸入時間／持續期間"></div>
+          <div class="field"><label for="q4">問題4：還有哪些人跟我一起參與這個課程／活動<span class="hint">例：班上同學、同組夥伴、某某同學</span></label><input id="q4" data-q="4" type="text" placeholder="請輸入一起參與的人"></div>
+          <div class="field"><label for="q5">問題5：這個課程／活動主要讓我學習到的具體技能是<span class="hint">請寫具體技能，例如使用工具、操作方法、合作方式</span></label><textarea id="q5" data-q="5" placeholder="請輸入具體技能"></textarea></div>
+          <div class="field"><label for="q6">問題6：這個課程／活動主要讓我得到的明確成長是<span class="hint">例：團隊合作、資料查證、表達能力、時間管理</span></label><textarea id="q6" data-q="6" placeholder="請輸入明確成長"></textarea></div>
+          <div class="field"><label for="q7">問題7：這個課程／活動給我最主要確實收穫是<span class="hint">請寫你自己最有感的一件事</span></label><textarea id="q7" data-q="7" placeholder="請輸入最主要的收穫"></textarea></div>
+        </section>
 
-      <div class="form-panel" id="questionForm">
-        <details class="section" open>
-          <summary><span class="section-title"><span class="section-number">1</span>課程／活動基本資料與背景</span><span class="chevron">›</span></summary>
-          <div class="questions">
-            <div class="field"><label for="q1">問題1：我想要拿來製作學習歷程的課程／活動名稱是<span class="hint">例：簡報製作課、專題實作、校外參訪、班級活動</span></label><input id="q1" data-q="1" placeholder="請輸入課程／活動名稱"></div>
-            <div class="field"><label for="q2">問題2：這個課程／活動的指導老師是<span class="hint">例：小米老師、國文老師、專題老師</span></label><input id="q2" data-q="2" placeholder="請輸入指導老師"></div>
-            <div class="field"><label for="q3">問題3：這個課程／活動發生的時間／持續期間是<span class="hint">例：這學期、5月10日～5月20日、整個上學期</span></label><input id="q3" data-q="3" placeholder="請輸入時間／持續期間"></div>
-            <div class="field"><label for="q4">問題4：還有哪些人跟我一起參與這個課程／活動<span class="hint">例：班上同學、同組夥伴、某某同學</span></label><input id="q4" data-q="4" placeholder="請輸入一起參與的人"></div>
-            <div class="field"><label for="q5">問題5：這個課程／活動主要讓我學習到的具體技能是<span class="hint">請寫得具體一點，例如工具、方法、操作能力</span></label><textarea id="q5" data-q="5" placeholder="請輸入具體技能"></textarea></div>
-            <div class="field"><label for="q6">問題6：這個課程／活動主要讓我得到的明確成長是<span class="hint">例：分工合作、表達能力、資料查證、時間管理</span></label><textarea id="q6" data-q="6" placeholder="請輸入明確成長"></textarea></div>
-            <div class="field"><label for="q7">問題7：這個課程／活動給我最主要確實收穫是<span class="hint">請寫出你自己最有感的一件事</span></label><textarea id="q7" data-q="7" placeholder="請輸入最主要的收穫"></textarea></div>
-          </div>
-        </details>
+        <section class="part-form" data-part="2">
+          <h3 class="part-title">第二部分：我經歷的學習過程</h3>
+          <div class="field"><label for="q8">問題8：指導老師配合哪一個課程進行這項活動？</label><input id="q8" data-q="8" type="text" placeholder="請輸入搭配的課程"></div>
+          <div class="field"><label for="q9">問題9：指導老師要你完成的任務／達成的目標是？</label><textarea id="q9" data-q="9" placeholder="請輸入任務或目標"></textarea></div>
+          <div class="field"><label for="q10">問題10：指導老師讓你在哪裡執行任務？</label><input id="q10" data-q="10" type="text" placeholder="請輸入執行地點"></div>
+          <div class="field"><label for="q11">問題11：指導老師讓你使用什麼工具？</label><input id="q11" data-q="11" type="text" placeholder="請輸入使用工具"></div>
+          <div class="field"><label for="q12">問題12：指導老師教你什麼技巧？</label><textarea id="q12" data-q="12" placeholder="請輸入學到的技巧"></textarea></div>
+        </section>
 
-        <details class="section" open>
-          <summary><span class="section-title"><span class="section-number">2</span>我經歷的學習過程</span><span class="chevron">›</span></summary>
-          <div class="questions">
-            <div class="field"><label for="q8">問題8：指導老師配合哪一個課程進行這項活動？</label><input id="q8" data-q="8" placeholder="請輸入搭配的課程"></div>
-            <div class="field"><label for="q9">問題9：指導老師要你完成的任務／達成的目標是？</label><textarea id="q9" data-q="9" placeholder="請輸入任務或目標"></textarea></div>
-            <div class="field"><label for="q10">問題10：指導老師讓你在哪裡執行任務？</label><input id="q10" data-q="10" placeholder="請輸入執行地點"></div>
-            <div class="field"><label for="q11">問題11：指導老師讓你使用什麼工具？</label><input id="q11" data-q="11" placeholder="請輸入使用工具"></div>
-            <div class="field"><label for="q12">問題12：指導老師教你什麼技巧？</label><textarea id="q12" data-q="12" placeholder="請輸入學到的技巧"></textarea></div>
-          </div>
-        </details>
+        <section class="part-form" data-part="3">
+          <h3 class="part-title">第三部分：我在這個學習過程中體驗了……</h3>
+          <div class="field"><label for="q13">問題13：一開始，你覺得這會是一個簡單還是困難的任務？</label><textarea id="q13" data-q="13" placeholder="請輸入一開始的想法"></textarea></div>
+          <div class="field"><label for="q14">問題14：你開始進行這個任務之後，遇到了什麼問題？<span class="hint">可以從人、器材、技巧、想法等方向回答</span></label><textarea id="q14" data-q="14" placeholder="請輸入遇到的問題"></textarea></div>
+          <div class="field"><label for="q15">問題15：遇到問題／困難的時候，你的感覺是？</label><textarea id="q15" data-q="15" placeholder="請輸入當下感覺"></textarea></div>
+          <div class="field"><label for="q16">問題16：你怎麼處理／解決這個問題？</label><textarea id="q16" data-q="16" placeholder="請輸入你的處理方式"></textarea></div>
+          <div class="field"><label for="q17">問題17：誰提供你幫助？他給你怎樣的解決方式？<span class="hint">老師／同學／網路／家人／自己查資料都可以</span></label><textarea id="q17" data-q="17" placeholder="請輸入協助你的人與解決方式"></textarea></div>
+          <div class="field"><label for="q18">問題18：你嘗試了幾次？或嘗試了多久？陸續又遇到哪些問題嗎？</label><textarea id="q18" data-q="18" placeholder="請輸入嘗試次數、時間或後續問題"></textarea></div>
+          <div class="field"><label for="q19">問題19：後來成功完成任務了嗎？感覺如何？如果依然失敗，你認為問題出在哪裡？</label><textarea id="q19" data-q="19" placeholder="請輸入最後結果與感受"></textarea></div>
+        </section>
 
-        <details class="section" open>
-          <summary><span class="section-title"><span class="section-number">3</span>我在這個學習過程中體驗了……</span><span class="chevron">›</span></summary>
-          <div class="questions">
-            <div class="field"><label for="q13">問題13：一開始，你覺得這會是一個簡單還是困難的任務？</label><textarea id="q13" data-q="13" placeholder="請輸入一開始的想法"></textarea></div>
-            <div class="field"><label for="q14">問題14：你開始進行這個任務之後，遇到了什麼問題？<span class="hint">可以從人、器材、技巧、想法等方向回答</span></label><textarea id="q14" data-q="14" placeholder="請輸入遇到的問題"></textarea></div>
-            <div class="field"><label for="q15">問題15：遇到問題／困難的時候，你的感覺是？</label><textarea id="q15" data-q="15" placeholder="請輸入當下感覺"></textarea></div>
-            <div class="field"><label for="q16">問題16：你怎麼處理／解決這個問題？</label><textarea id="q16" data-q="16" placeholder="請輸入你的處理方式"></textarea></div>
-            <div class="field"><label for="q17">問題17：誰提供你幫助？他給你怎樣的解決方式？<span class="hint">老師／同學／網路／家人／自己查資料都可以</span></label><textarea id="q17" data-q="17" placeholder="請輸入協助你的人與解決方式"></textarea></div>
-            <div class="field"><label for="q18">問題18：你嘗試了幾次？或嘗試了多久？陸續又遇到哪些問題嗎？</label><textarea id="q18" data-q="18" placeholder="請輸入嘗試次數、時間或後續問題"></textarea></div>
-            <div class="field"><label for="q19">問題19：後來成功完成任務了嗎？感覺如何？如果依然失敗，你認為問題出在哪裡？</label><textarea id="q19" data-q="19" placeholder="請輸入最後結果與感受"></textarea></div>
-          </div>
-        </details>
-
-        <details class="section" open>
-          <summary><span class="section-title"><span class="section-number">4</span>我從這個學習過程中發現了</span><span class="chevron">›</span></summary>
-          <div class="questions">
-            <div class="field"><label for="q20">問題20：這個活動過程讓你體會到？</label><textarea id="q20" data-q="20" placeholder="請輸入你的體會"></textarea></div>
-            <div class="field"><label for="q21">問題21：為什麼？</label><textarea id="q21" data-q="21" placeholder="請說明原因"></textarea></div>
-            <div class="field"><label for="q22">問題22：你發現這個活動的結果改變了你原先怎樣的想法／狀態／心態／能力</label><textarea id="q22" data-q="22" placeholder="請輸入改變了什麼"></textarea></div>
-            <div class="field"><label for="q23">問題23：你覺得接下來你會想要增進／改進哪些技巧／能力</label><textarea id="q23" data-q="23" placeholder="請輸入想增進的技巧或能力"></textarea></div>
-            <div class="field"><label for="q24">問題24：這個活動的收穫，讓你覺得自己接下來或許可以嘗試什麼</label><textarea id="q24" data-q="24" placeholder="請輸入接下來想嘗試的事"></textarea></div>
-          </div>
-        </details>
+        <section class="part-form" data-part="4">
+          <h3 class="part-title">第四部分：我從這個學習過程中發現了</h3>
+          <div class="field"><label for="q20">問題20：這個活動過程讓你體會到？</label><textarea id="q20" data-q="20" placeholder="請輸入你的體會"></textarea></div>
+          <div class="field"><label for="q21">問題21：為什麼？</label><textarea id="q21" data-q="21" placeholder="請說明原因"></textarea></div>
+          <div class="field"><label for="q22">問題22：你發現這個活動的結果改變了你原先怎樣的想法／狀態／心態／能力</label><textarea id="q22" data-q="22" placeholder="請輸入改變了什麼"></textarea></div>
+          <div class="field"><label for="q23">問題23：你覺得接下來你會想要增進／改進哪些技巧／能力</label><textarea id="q23" data-q="23" placeholder="請輸入想增進的技巧或能力"></textarea></div>
+          <div class="field"><label for="q24">問題24：這個活動的收穫，讓你覺得自己接下來或許可以嘗試什麼</label><textarea id="q24" data-q="24" placeholder="請輸入接下來想嘗試的事"></textarea></div>
+        </section>
       </div>
     </section>
 
-    <!-- =========================
-      右側即時文字畫面 START
-      這一區會即時顯示學生目前輸入後的四段合成文字，並保留示範例子。
-    ========================== -->
-    <aside class="panel live-preview-panel" aria-label="右側即時文字畫面">
-      <div class="panel-header">
-        <h2>右側即時文字畫面</h2>
-        <p>左邊一輸入，這裡就會立刻出現「你的合成果」。下方示範例子可以讓你對照寫法。</p>
+    <section class="panel sticky" aria-label="中間即時文章成果">
+      <div class="panel-head">
+        <h2>中間｜即時文章成果</h2>
+        <p>這裡像截圖右側文字框，會即時顯示目前串聯後的四段成果。</p>
       </div>
-
-      <div class="live-preview-body">
-        <article class="preview-card">
-          <h3><span class="dot"></span>第一部分｜你的合成果</h3>
-          <p class="preview-text" id="preview1">載入中……</p>
-          <div class="example-box">
-            <div class="example-title">示範例子</div>
-            <p>小米老師的「簡報製作課」是我在這學期的 5月10日～5月20日 最有收穫的一個課程／活動。在這個課程／活動中，我跟班上同學斑比、萊恩一起體驗「用 Canva 跟夥伴在線上共編，製作完成一個簡報」這個技能，也得到「讓我能有跟同學一起線上團隊合作、同步編輯、分工合作」的成長。對我來說，這次最主要、最確實的收穫是：我第一次跟同學用這種分工合作的方式完成一個作品，非常有成就感。</p>
-          </div>
-        </article>
-
-        <article class="preview-card">
-          <h3><span class="dot"></span>第二部分｜你的合成果</h3>
-          <p class="preview-text" id="preview2">載入中……</p>
-          <div class="example-box">
-            <div class="example-title">示範例子</div>
-            <p>小米老師配合「國文第五課鬼頭刀」的課程，讓我們進行「團體共編簡報」的任務。老師安排我們在教室與 VOD 電腦教室執行任務，並讓我們使用電腦。過程中，老師也教我們「用 Canva 搭配 Gemini 做網頁」這項技巧。</p>
-          </div>
-        </article>
-
-        <article class="preview-card">
-          <h3><span class="dot"></span>第三部分｜你的合成果</h3>
-          <p class="preview-text" id="preview3">載入中……</p>
-          <div class="example-box">
-            <div class="example-title">示範例子</div>
-            <p>一開始，我覺得這應該會是很簡單的任務。直到我開始動手做，我才發現有同學不知道怎麼共編、我們不知道要做什麼內容，也不知道怎麼分配工作。遇到問題／困難的時候，我的感覺是：這個感覺很差，我覺得自己做比較快，跟別人搭配很煩。後來，我用「我告訴老師我對這樣的進行方式很困擾」的方式處理這個問題。老師告訴我們可以先從課本內容開始分類，再各自在 AI 上提出問題、得到結果後查資料確認，也提供我幫助，讓我找到新的解決方式。接著，我又嘗試了一整節課一起在 Gemini 上問問題、整理答案，雖然得到很多資料，可是我們不知道是不是對的。最後，我們找老師一起確認資料，用課本確認 AI 給的答案正不正確，然後各自分配 2 頁簡報，再用了 3 節課完成整份簡報，雖然不覺得完美，可是我們一起完成了，還是很有成就感。</p>
-          </div>
-        </article>
-
-        <article class="preview-card">
-          <h3><span class="dot"></span>第四部分｜你的合成果</h3>
-          <p class="preview-text" id="preview4">載入中……</p>
-          <div class="example-box">
-            <div class="example-title">示範例子</div>
-            <p>因為參與了 5月10日～5月20日、由小米老師指導的「簡報製作課」，我體會到團隊合作真不容易。我會這樣想，是因為每個人的想法不同，能力也不同，審美觀也完全不一樣，進度更不可能一樣。後來真的完成任務之後，我發現自己改變了一開始只想要自己做就好，現在覺得其實共編的合作方式也很開心，大家還可以在線上一邊聊天一邊做，比較不無聊。因為這個活動，讓我希望自己接下來可以學習或改進更多的 Canva 小技巧、溝通表達的方式。我也希望接下來可以用這次活動帶給我的收穫，去嘗試製作互動式網頁，做出可以給別人玩的小遊戲。</p>
-          </div>
-        </article>
+      <div class="scroll-area">
+        <article class="live-card"><h3><span class="dot"></span>第一部分</h3><span class="badge live">你的即時合成果</span><p class="output" id="preview1">載入中……</p></article>
+        <article class="live-card"><h3><span class="dot"></span>第二部分</h3><span class="badge live">你的即時合成果</span><p class="output" id="preview2">載入中……</p></article>
+        <article class="live-card"><h3><span class="dot"></span>第三部分</h3><span class="badge live">你的即時合成果</span><p class="output" id="preview3">載入中……</p></article>
+        <article class="live-card"><h3><span class="dot"></span>第四部分</h3><span class="badge live">你的即時合成果</span><p class="output" id="preview4">載入中……</p></article>
       </div>
-
       <div class="actions">
-        <button class="primary" type="button" id="copyAllTop">複製完整成果</button>
-        <button class="secondary" type="button" id="clearAll">清空重寫</button>
+        <button class="action primary" type="button" id="copyAllTop">複製完整成果</button>
+        <button class="action secondary" type="button" id="clearAll">清空重寫</button>
+      </div>
+    </section>
+
+    <aside class="panel sticky model-panel" aria-label="右側範文架構">
+      <div class="panel-head">
+        <h2>右側｜範文架構</h2>
+        <p>學生一定看得到寫法。每段都有「句型骨架」和「完整示範」。</p>
+      </div>
+      <div class="scroll-area">
+        <article class="template-card"><h3><span class="dot"></span>第一部分</h3><span class="badge template">範文架構</span><p class="template-text">【指導老師】的「【課程／活動名稱】」是我在【時間／期間】最有收穫的一個課程。在這個課程中，我跟【一起參與的人】一起體驗【具體技能】這個技能，得到【明確成長】的成長，【主要收穫】。</p><span class="badge model">完整示範</span><p class="model-text">小米老師的「簡報製作課」是我在這學期的 5月10日～5月20日 最有收穫的一個課程，在這個課程中，我跟班上同學斑比、萊恩一起體驗用 Canva 跟夥伴在線上共編，製作完成一個簡報這個技能，讓我能有跟同學一起線上團隊合作、同步編輯、分工合作的成長，我第一次跟同學用這種分工合作的方式完成一個作品，非常有成就感。</p></article>
+        <article class="template-card"><h3><span class="dot"></span>第二部分</h3><span class="badge template">範文架構</span><p class="template-text">【指導老師】配合【搭配課程】的課程，要我們進行【任務／目標】的任務。老師在【執行地點】讓我們使用【工具】，並教我們【技巧】。</p><span class="badge model">完整示範</span><p class="model-text">小米老師配合國文第五課鬼頭刀的課程，要我們進行團體共編簡報的任務。老師在教室與 VOD 電腦教室讓我們使用電腦，並教我們用 Canva 搭配 Gemini 做網頁。</p></article>
+        <article class="template-card"><h3><span class="dot"></span>第三部分</h3><span class="badge template">範文架構</span><p class="template-text">一開始，我覺得【簡單或困難的想法】，直到我開始動手做，我才發現【遇到的問題】。【當時感覺】。後來我用【處理方式】面對問題，【幫助來源與解決方式】也幫助我找到方向。接著，我又嘗試了【嘗試次數／時間／後續問題】。最後，【完成情況與感受】。</p><span class="badge model">完整示範</span><p class="model-text">一開始，我覺得這應該會是很簡單的任務，直到我開始動手做，我才發現有同學不知道怎麼共編、我們不知道要做什麼內容，也不知道怎麼分配工作。這個感覺很差，我覺得自己做比較快，跟別人搭配很煩。後來我告訴老師我對這樣的進行方式很困擾，老師告訴我們這一組可以先從課本的內容開始分類，再各自在 AI 上提出問題、想法，得到結果後再去網路上查資料確認。我們用一整節課一起在 Gemini 上問問題，整理答案。後來我們找老師一起確認資料，再用了 3 節課完成整份簡報，雖然不覺得完美，可是我們一起完成了，還是很有成就感。</p></article>
+        <article class="template-card"><h3><span class="dot"></span>第四部分</h3><span class="badge template">範文架構</span><p class="template-text">因為參與了【時間／期間】【指導老師】的【課程／活動名稱】，我體會到【活動體會】，因為【原因】。後來完成任務之後，我發現我改變了【想法／狀態／能力的改變】。因為這個活動，讓我希望自己接下來可以學習【想增進的技巧／能力】，也希望用這次活動的收穫去嘗試【接下來想嘗試的事】。</p><span class="badge model">完整示範</span><p class="model-text">因為參與了 5月10日～5月20日小米老師的簡報製作課，我體會到團隊合作真不容易，因為每個人的想法不同，能力也不同，審美觀也完全不一樣，進度更不可能一樣。後來真的完成任務之後，我發現我改變了一開始只想要自己做就好，現在覺得其實共編的合作方式也很開心。因為這個活動，讓我希望自己接下來可以學習更多 Canva 小技巧、溝通表達的方式，也希望用這次活動帶給我的收穫，去嘗試製作互動式網頁，做出可以給別人玩的小遊戲。</p></article>
       </div>
     </aside>
-    <!-- 右側即時文字畫面 END -->
   </main>
 
-  <!-- =========================
-    網頁下方即時完整合併內容 START
-    這一區會把四部分合併成完整文字。
-  ========================== -->
-  <section class="final-section" aria-label="網頁下方即時完整合併內容">
+  <section class="final-section" aria-label="完整合併成果">
     <div class="final-card">
-      <h2>網頁下方｜四部分即時完整合併成果</h2>
-      <p class="guide">完成後，請先自己讀一遍。若覺得有些地方不順，可以回到上方修改答案，這裡會自動更新。</p>
+      <h2>網頁下方｜四部分完整合併成果</h2>
+      <p class="guide">這裡會把中間四段即時成果合併成完整文章。完成後請先讀一遍，再複製到 Word、Google 文件或 Canva 裡繼續編輯。</p>
       <div class="final-output" id="finalOutput">載入中……</div>
-      <div class="final-actions">
-        <button class="primary" type="button" id="copyAllBottom">複製完整成果</button>
-        <button class="secondary" type="button" id="copyPlain">複製並移除未填標記</button>
+      <div class="actions" style="padding-left:0; padding-right:0; border-top:0; background:transparent;">
+        <button class="action primary" type="button" id="copyAllBottom">複製完整成果</button>
+        <button class="action secondary" type="button" id="copyPlain">複製並移除未填標記</button>
       </div>
-      <p class="small-note">提醒：貼到 Word、Google 文件或 Canva 後，可以再加入照片、截圖、作品成果與版面設計，讓學習歷程更完整。</p>
     </div>
   </section>
-  <!-- 網頁下方即時完整合併內容 END -->
 
-  <footer class="site-footer" aria-label="開發者與授權註記">
+  <footer class="site-footer">
     <p>本頁面由 <strong>國立花蓮高工 柯貞伊老師</strong> 開發，供學習歷程寫作引導使用。請勿移除署名、冒用或改作為未註明來源之公開教學資源。</p>
   </footer>
 
@@ -615,7 +532,6 @@
 
       var totalQuestions = 24;
       var answers = {};
-
       var preview1 = document.getElementById('preview1');
       var preview2 = document.getElementById('preview2');
       var preview3 = document.getElementById('preview3');
@@ -623,32 +539,32 @@
       var finalOutput = document.getElementById('finalOutput');
       var toast = document.getElementById('toast');
 
-      function getValue(number, removeMarkers) {
-        var value = answers[number];
-        if (typeof value !== 'string') value = '';
-        value = value.trim();
-        if (value) return value;
-        return removeMarkers ? '' : '【問題' + number + '尚未填寫】';
+      function v(n, plain) {
+        var text = answers[n];
+        if (typeof text !== 'string') text = '';
+        text = text.trim();
+        if (text) return text;
+        return plain ? '' : '【問題' + n + '尚未填寫】';
       }
 
-      function part1(removeMarkers) {
-        return getValue(2, removeMarkers) + '的「' + getValue(1, removeMarkers) + '」是我在' + getValue(3, removeMarkers) + '最有收穫的一個課程／活動。在這個課程／活動中，我跟' + getValue(4, removeMarkers) + '一起體驗「' + getValue(5, removeMarkers) + '」這個技能，也得到「' + getValue(6, removeMarkers) + '」的成長。對我來說，這次最主要、最確實的收穫是：' + getValue(7, removeMarkers) + '。';
+      function part1(plain) {
+        return v(2, plain) + '的「' + v(1, plain) + '」是我在' + v(3, plain) + '最有收穫的一個課程，在這個課程中，我跟' + v(4, plain) + '一起體驗' + v(5, plain) + '這個技能，' + v(6, plain) + '的成長，' + v(7, plain) + '。';
       }
 
-      function part2(removeMarkers) {
-        return getValue(2, removeMarkers) + '配合「' + getValue(8, removeMarkers) + '」的課程，讓我們進行「' + getValue(9, removeMarkers) + '」的任務。老師安排我們在' + getValue(10, removeMarkers) + '執行任務，並讓我們使用' + getValue(11, removeMarkers) + '。在過程中，老師也教我們「' + getValue(12, removeMarkers) + '」這項技巧。';
+      function part2(plain) {
+        return v(2, plain) + '配合' + v(8, plain) + '的課程，要我們進行' + v(9, plain) + '的任務。老師在' + v(10, plain) + '讓我們使用' + v(11, plain) + '，並教我們' + v(12, plain) + '。';
       }
 
-      function part3(removeMarkers) {
-        return '一開始，我覺得' + getValue(13, removeMarkers) + '。直到我開始動手做，我才發現' + getValue(14, removeMarkers) + '。遇到問題／困難的時候，我的感覺是：' + getValue(15, removeMarkers) + '。後來，我用「' + getValue(16, removeMarkers) + '」的方式處理這個問題。' + getValue(17, removeMarkers) + '也提供我幫助，讓我找到新的解決方式。接著，我又嘗試了' + getValue(18, removeMarkers) + '。最後，' + getValue(19, removeMarkers) + '。';
+      function part3(plain) {
+        return '一開始，我覺得' + v(13, plain) + '，直到我開始動手做，我才發現' + v(14, plain) + '。' + v(15, plain) + '。後來我用「' + v(16, plain) + '」的方式面對問題，' + v(17, plain) + '也幫助我找到解決方向。接著，我又嘗試了' + v(18, plain) + '。最後，' + v(19, plain) + '。';
       }
 
-      function part4(removeMarkers) {
-        return '因為參與了' + getValue(3, removeMarkers) + '、由' + getValue(2, removeMarkers) + '指導的「' + getValue(1, removeMarkers) + '」，我體會到' + getValue(20, removeMarkers) + '。我會這樣想，是因為' + getValue(21, removeMarkers) + '。後來真的完成任務之後，我發現自己改變了' + getValue(22, removeMarkers) + '。因為這個活動，讓我希望自己接下來可以學習或改進' + getValue(23, removeMarkers) + '。我也希望接下來可以用這次活動帶給我的收穫，去嘗試' + getValue(24, removeMarkers) + '。';
+      function part4(plain) {
+        return '因為參與了' + v(3, plain) + v(2, plain) + '的「' + v(1, plain) + '」，我體會到' + v(20, plain) + '，因為' + v(21, plain) + '。後來真的完成任務之後，我發現我改變了' + v(22, plain) + '。因為這個活動，讓我希望自己接下來可以學習' + v(23, plain) + '，也希望用這次活動帶給我的收穫，去嘗試' + v(24, plain) + '。';
       }
 
-      function fullText(removeMarkers) {
-        return [part1(removeMarkers), part2(removeMarkers), part3(removeMarkers), part4(removeMarkers)].join('\n\n').replace(/[ \t]+/g, ' ').trim();
+      function fullText(plain) {
+        return [part1(plain), part2(plain), part3(plain), part4(plain)].join('\n\n').replace(/[ \t]+/g, ' ').trim();
       }
 
       function render() {
@@ -662,14 +578,12 @@
       function showToast(message) {
         toast.textContent = message;
         toast.className = 'toast show';
-        window.setTimeout(function () {
-          toast.className = 'toast';
-        }, 1800);
+        window.setTimeout(function () { toast.className = 'toast'; }, 1700);
       }
 
-      function fallbackCopy(textToCopy) {
+      function fallbackCopy(text) {
         var temp = document.createElement('textarea');
-        temp.value = textToCopy;
+        temp.value = text;
         temp.setAttribute('readonly', '');
         temp.style.position = 'fixed';
         temp.style.left = '-9999px';
@@ -679,21 +593,19 @@
         try {
           document.execCommand('copy');
           showToast('已複製到剪貼簿');
-        } catch (error) {
+        } catch (e) {
           showToast('複製失敗，請手動選取文字複製');
         }
         document.body.removeChild(temp);
       }
 
-      function copyText(textToCopy) {
+      function copyText(text) {
         if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(textToCopy).then(function () {
+          navigator.clipboard.writeText(text).then(function () {
             showToast('已複製到剪貼簿');
-          }).catch(function () {
-            fallbackCopy(textToCopy);
-          });
+          }).catch(function () { fallbackCopy(text); });
         } else {
-          fallbackCopy(textToCopy);
+          fallbackCopy(text);
         }
       }
 
@@ -711,23 +623,26 @@
         }
       }
 
+      function bindTabs() {
+        var buttons = document.querySelectorAll('.tab-btn');
+        var forms = document.querySelectorAll('.part-form');
+        for (var i = 0; i < buttons.length; i += 1) {
+          buttons[i].addEventListener('click', function () {
+            var target = this.getAttribute('data-tab');
+            for (var j = 0; j < buttons.length; j += 1) buttons[j].classList.remove('active');
+            for (var k = 0; k < forms.length; k += 1) forms[k].classList.remove('active');
+            this.classList.add('active');
+            document.querySelector('.part-form[data-part="' + target + '"]').classList.add('active');
+          });
+        }
+      }
+
       function bindButtons() {
-        document.getElementById('copyAllTop').addEventListener('click', function () {
-          copyText(fullText(false));
-        });
-
-        document.getElementById('copyAllBottom').addEventListener('click', function () {
-          copyText(fullText(false));
-        });
-
-        document.getElementById('copyPlain').addEventListener('click', function () {
-          copyText(fullText(true));
-        });
-
+        document.getElementById('copyAllTop').addEventListener('click', function () { copyText(fullText(false)); });
+        document.getElementById('copyAllBottom').addEventListener('click', function () { copyText(fullText(false)); });
+        document.getElementById('copyPlain').addEventListener('click', function () { copyText(fullText(true)); });
         document.getElementById('clearAll').addEventListener('click', function () {
-          var confirmed = window.confirm('確定要清空所有填答內容嗎？');
-          if (!confirmed) return;
-
+          if (!window.confirm('確定要清空所有填答內容嗎？')) return;
           var fields = document.querySelectorAll('input[data-q], textarea[data-q]');
           for (var i = 1; i <= totalQuestions; i += 1) answers[i] = '';
           for (var j = 0; j < fields.length; j += 1) fields[j].value = '';
@@ -738,6 +653,7 @@
 
       function init() {
         bindInputs();
+        bindTabs();
         bindButtons();
         render();
       }
