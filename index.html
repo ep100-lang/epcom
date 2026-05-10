@@ -6,14 +6,14 @@
 -->
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>國立花蓮高工 學習歷程引導寫作頁</title>
   <style>
     :root {
       --bg: #f6f3ee;
       --paper: #fffdf9;
-      --paper-2: #fefaf3;
+      --paper-soft: #fbf7ef;
       --ink: #263238;
       --muted: #687276;
       --line: #ddd4c8;
@@ -21,8 +21,6 @@
       --sage-dark: #5f7f70;
       --sand: #decfb9;
       --wood: #b88f68;
-      --blue: #7d9aaa;
-      --rose: #c9877c;
       --shadow: 0 18px 45px rgba(73, 63, 50, 0.12);
       --radius-xl: 28px;
       --radius-lg: 20px;
@@ -33,9 +31,13 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;
       color: var(--ink);
       background:
         radial-gradient(circle at 12% 10%, rgba(143, 169, 155, 0.22), transparent 28%),
@@ -52,12 +54,11 @@
     }
 
     .hero {
-      background: rgba(255, 253, 249, 0.78);
-      border: 1px solid rgba(221, 212, 200, 0.7);
+      background: rgba(255, 253, 249, 0.86);
+      border: 1px solid rgba(221, 212, 200, 0.8);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
       padding: 34px;
-      backdrop-filter: blur(18px);
       position: relative;
       overflow: hidden;
     }
@@ -79,19 +80,9 @@
       z-index: 1;
     }
 
-    h1 {
-      margin: 0 0 14px;
-      font-size: clamp(2rem, 4vw, 3.3rem);
-      letter-spacing: 0.04em;
-      line-height: 1.25;
-    }
-
-    $1
-
     .developer-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
       margin-bottom: 16px;
       padding: 7px 12px;
       border-radius: 999px;
@@ -101,6 +92,20 @@
       font-size: 0.86rem;
       font-weight: 700;
       letter-spacing: 0.04em;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      letter-spacing: 0.04em;
+      line-height: 1.25;
+    }
+
+    .subtitle {
+      max-width: 980px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin: 0;
     }
 
     .main-layout {
@@ -114,18 +119,17 @@
     }
 
     .panel {
-      background: rgba(255, 253, 249, 0.86);
-      border: 1px solid rgba(221, 212, 200, 0.82);
+      background: rgba(255, 253, 249, 0.9);
+      border: 1px solid rgba(221, 212, 200, 0.86);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
       overflow: hidden;
-      backdrop-filter: blur(16px);
     }
 
     .panel-header {
       padding: 22px 26px;
       border-bottom: 1px solid var(--line);
-      background: rgba(255, 250, 242, 0.68);
+      background: rgba(255, 250, 242, 0.74);
     }
 
     .panel-header h2 {
@@ -187,6 +191,7 @@
       font-weight: 800;
       font-size: 0.92rem;
       box-shadow: 0 8px 18px rgba(95, 127, 112, 0.22);
+      flex: 0 0 auto;
     }
 
     .chevron {
@@ -206,8 +211,8 @@
     }
 
     .field {
-      background: rgba(246, 243, 238, 0.7);
-      border: 1px solid rgba(221, 212, 200, 0.9);
+      background: rgba(246, 243, 238, 0.72);
+      border: 1px solid rgba(221, 212, 200, 0.92);
       border-radius: var(--radius-lg);
       padding: 16px;
     }
@@ -232,7 +237,7 @@
       width: 100%;
       border: 1px solid rgba(143, 169, 155, 0.55);
       border-radius: 16px;
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.95);
       color: var(--ink);
       font: inherit;
       padding: 12px 14px;
@@ -290,11 +295,34 @@
       flex: 0 0 auto;
     }
 
-    .preview-text {
+    $1
+
+    .example-box {
+      margin-top: 14px;
+      padding: 14px 15px;
+      border-radius: 16px;
+      background: rgba(143, 169, 155, 0.1);
+      border: 1px solid rgba(143, 169, 155, 0.22);
+      color: #53605c;
+      font-size: 0.9rem;
+    }
+
+    .example-title {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 8px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(95, 127, 112, 0.14);
+      color: #4f6f62;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .example-box p {
       margin: 0;
-      white-space: pre-wrap;
-      color: #344246;
-      font-size: 0.98rem;
+      line-height: 1.75;
     }
 
     .placeholder {
@@ -310,7 +338,7 @@
       gap: 10px;
       padding: 16px 22px 22px;
       border-top: 1px solid var(--line);
-      background: rgba(255, 250, 242, 0.68);
+      background: rgba(255, 250, 242, 0.74);
     }
 
     button {
@@ -366,8 +394,8 @@
     }
 
     .final-card {
-      background: rgba(255, 253, 249, 0.9);
-      border: 1px solid rgba(221, 212, 200, 0.85);
+      background: rgba(255, 253, 249, 0.92);
+      border: 1px solid rgba(221, 212, 200, 0.86);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
       padding: 26px;
@@ -400,7 +428,11 @@
       margin-top: 16px;
     }
 
-    $1
+    .small-note {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
 
     .site-footer {
       max-width: 1280px;
@@ -415,7 +447,7 @@
       margin: 0;
       padding: 14px 18px;
       border-radius: 999px;
-      background: rgba(255, 253, 249, 0.72);
+      background: rgba(255, 253, 249, 0.76);
       border: 1px solid rgba(221, 212, 200, 0.7);
     }
 
@@ -437,7 +469,8 @@
     @media (max-width: 640px) {
       header,
       .main-layout,
-      .final-section {
+      .final-section,
+      .site-footer {
         padding-left: 14px;
         padding-right: 14px;
       }
@@ -452,6 +485,14 @@
       .questions {
         padding-left: 18px;
         padding-right: 18px;
+      }
+
+      .section-title {
+        align-items: flex-start;
+      }
+
+      .site-footer p {
+        border-radius: 18px;
       }
     }
   </style>
@@ -482,10 +523,10 @@
             <span class="chevron">›</span>
           </summary>
           <div class="questions">
-            <div class="field"><label for="q1">問題1：我想要拿來製作學習歷程的課程／活動名稱是<span class="hint">例：簡報製作課、專題實作、校外參訪、班級活動</span></label><input id="q1" data-q="1" placeholder="請輸入課程／活動名稱" /></div>
-            <div class="field"><label for="q2">問題2：這個課程／活動的指導老師是<span class="hint">例：小米老師、國文老師、專題老師</span></label><input id="q2" data-q="2" placeholder="請輸入指導老師" /></div>
-            <div class="field"><label for="q3">問題3：這個課程／活動發生的時間／持續期間是<span class="hint">例：這學期、5月10日～5月20日、整個上學期</span></label><input id="q3" data-q="3" placeholder="請輸入時間／持續期間" /></div>
-            <div class="field"><label for="q4">問題4：還有哪些人跟我一起參與這個課程／活動<span class="hint">例：班上同學、同組夥伴、某某同學</span></label><input id="q4" data-q="4" placeholder="請輸入一起參與的人" /></div>
+            <div class="field"><label for="q1">問題1：我想要拿來製作學習歷程的課程／活動名稱是<span class="hint">例：簡報製作課、專題實作、校外參訪、班級活動</span></label><input id="q1" data-q="1" placeholder="請輸入課程／活動名稱"></div>
+            <div class="field"><label for="q2">問題2：這個課程／活動的指導老師是<span class="hint">例：小米老師、國文老師、專題老師</span></label><input id="q2" data-q="2" placeholder="請輸入指導老師"></div>
+            <div class="field"><label for="q3">問題3：這個課程／活動發生的時間／持續期間是<span class="hint">例：這學期、5月10日～5月20日、整個上學期</span></label><input id="q3" data-q="3" placeholder="請輸入時間／持續期間"></div>
+            <div class="field"><label for="q4">問題4：還有哪些人跟我一起參與這個課程／活動<span class="hint">例：班上同學、同組夥伴、某某同學</span></label><input id="q4" data-q="4" placeholder="請輸入一起參與的人"></div>
             <div class="field"><label for="q5">問題5：這個課程／活動主要讓我學習到的具體技能是<span class="hint">請寫得具體一點，例如工具、方法、操作能力</span></label><textarea id="q5" data-q="5" placeholder="請輸入具體技能"></textarea></div>
             <div class="field"><label for="q6">問題6：這個課程／活動主要讓我得到的明確成長是<span class="hint">例：分工合作、表達能力、資料查證、時間管理</span></label><textarea id="q6" data-q="6" placeholder="請輸入明確成長"></textarea></div>
             <div class="field"><label for="q7">問題7：這個課程／活動給我最主要確實收穫是<span class="hint">請寫出你自己最有感的一件事</span></label><textarea id="q7" data-q="7" placeholder="請輸入最主要的收穫"></textarea></div>
@@ -498,10 +539,10 @@
             <span class="chevron">›</span>
           </summary>
           <div class="questions">
-            <div class="field"><label for="q8">問題8：指導老師配合哪一個課程進行這項活動？</label><input id="q8" data-q="8" placeholder="請輸入搭配的課程" /></div>
+            <div class="field"><label for="q8">問題8：指導老師配合哪一個課程進行這項活動？</label><input id="q8" data-q="8" placeholder="請輸入搭配的課程"></div>
             <div class="field"><label for="q9">問題9：指導老師要你完成的任務／達成的目標是？</label><textarea id="q9" data-q="9" placeholder="請輸入任務或目標"></textarea></div>
-            <div class="field"><label for="q10">問題10：指導老師讓你在哪裡執行任務？</label><input id="q10" data-q="10" placeholder="請輸入執行地點" /></div>
-            <div class="field"><label for="q11">問題11：指導老師讓你使用什麼工具？</label><input id="q11" data-q="11" placeholder="請輸入使用工具" /></div>
+            <div class="field"><label for="q10">問題10：指導老師讓你在哪裡執行任務？</label><input id="q10" data-q="10" placeholder="請輸入執行地點"></div>
+            <div class="field"><label for="q11">問題11：指導老師讓你使用什麼工具？</label><input id="q11" data-q="11" placeholder="請輸入使用工具"></div>
             <div class="field"><label for="q12">問題12：指導老師教你什麼技巧？</label><textarea id="q12" data-q="12" placeholder="請輸入學到的技巧"></textarea></div>
           </div>
         </details>
@@ -577,105 +618,244 @@
   <div class="toast" id="toast">已複製到剪貼簿</div>
 
   <script>
-    const answers = {};
-    const totalQuestions = 24;
+    (function () {
+      'use strict';
 
-    function getAnswer(number) {
-      const value = (answers[number] || "").trim();
-      if (value) return escapeHtml(value);
-      return `<span class="placeholder">問題${number}尚未填寫</span>`;
-    }
+      var totalQuestions = 24;
+      var answers = {};
+      var preview1 = document.getElementById('preview1');
+      var preview2 = document.getElementById('preview2');
+      var preview3 = document.getElementById('preview3');
+      var preview4 = document.getElementById('preview4');
+      var finalOutput = document.getElementById('finalOutput');
+      var toast = document.getElementById('toast');
 
-    function escapeHtml(text) {
-      return text
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/\"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    }
+      function text(number, removeMarkers) {
+        var value = answers[number];
+        if (typeof value !== 'string') {
+          value = '';
+        }
+        value = value.trim();
+        if (value !== '') {
+          return value;
+        }
+        if (removeMarkers) {
+          return '';
+        }
+        return '【問題' + number + '尚未填寫】';
+      }
 
-    function buildPreviewHtml() {
-      const part1 = `${getAnswer(2)}的「${getAnswer(1)}」是我在${getAnswer(3)}最有收穫的一個課程／活動。在這個課程／活動中，我跟${getAnswer(4)}一起體驗「${getAnswer(5)}」這個技能，也得到「${getAnswer(6)}」的成長。對我來說，這次最主要、最確實的收穫是：${getAnswer(7)}。`;
+      function clearNode(node) {
+        while (node.firstChild) {
+          node.removeChild(node.firstChild);
+        }
+      }
 
-      const part2 = `${getAnswer(2)}配合「${getAnswer(8)}」的課程，讓我們進行「${getAnswer(9)}」的任務。老師安排我們在${getAnswer(10)}執行任務，並讓我們使用${getAnswer(11)}。在過程中，老師也教我們「${getAnswer(12)}」這項技巧。`;
+      function appendText(node, content) {
+        node.appendChild(document.createTextNode(content));
+      }
 
-      const part3 = `一開始，我覺得${getAnswer(13)}。直到我開始動手做，我才發現${getAnswer(14)}。遇到問題／困難的時候，我的感覺是：${getAnswer(15)}。後來，我用「${getAnswer(16)}」的方式處理這個問題。${getAnswer(17)}也提供我幫助，讓我找到新的解決方式。接著，我又嘗試了${getAnswer(18)}。最後，${getAnswer(19)}。`;
+      function appendAnswer(node, number) {
+        var value = answers[number];
+        if (typeof value === 'string' && value.trim() !== '') {
+          node.appendChild(document.createTextNode(value.trim()));
+        } else {
+          var span = document.createElement('span');
+          span.className = 'placeholder';
+          span.textContent = '問題' + number + '尚未填寫';
+          node.appendChild(span);
+        }
+      }
 
-      const part4 = `因為參與了${getAnswer(3)}、由${getAnswer(2)}指導的「${getAnswer(1)}」，我體會到${getAnswer(20)}。我會這樣想，是因為${getAnswer(21)}。後來真的完成任務之後，我發現自己改變了${getAnswer(22)}。因為這個活動，讓我希望自己接下來可以學習或改進${getAnswer(23)}。我也希望接下來可以用這次活動帶給我的收穫，去嘗試${getAnswer(24)}。`;
+      function renderPart1(node) {
+        clearNode(node);
+        appendAnswer(node, 2);
+        appendText(node, '的「');
+        appendAnswer(node, 1);
+        appendText(node, '」是我在');
+        appendAnswer(node, 3);
+        appendText(node, '最有收穫的一個課程／活動。在這個課程／活動中，我跟');
+        appendAnswer(node, 4);
+        appendText(node, '一起體驗「');
+        appendAnswer(node, 5);
+        appendText(node, '」這個技能，也得到「');
+        appendAnswer(node, 6);
+        appendText(node, '」的成長。對我來說，這次最主要、最確實的收穫是：');
+        appendAnswer(node, 7);
+        appendText(node, '。');
+      }
 
-      return { part1, part2, part3, part4 };
-    }
+      function renderPart2(node) {
+        clearNode(node);
+        appendAnswer(node, 2);
+        appendText(node, '配合「');
+        appendAnswer(node, 8);
+        appendText(node, '」的課程，讓我們進行「');
+        appendAnswer(node, 9);
+        appendText(node, '」的任務。老師安排我們在');
+        appendAnswer(node, 10);
+        appendText(node, '執行任務，並讓我們使用');
+        appendAnswer(node, 11);
+        appendText(node, '。在過程中，老師也教我們「');
+        appendAnswer(node, 12);
+        appendText(node, '」這項技巧。');
+      }
 
-    function buildPlainText(removeMarkers = false) {
-      const a = (n) => {
-        const value = (answers[n] || "").trim();
-        if (value) return value;
-        return removeMarkers ? "" : `【問題${n}尚未填寫】`;
-      };
+      function renderPart3(node) {
+        clearNode(node);
+        appendText(node, '一開始，我覺得');
+        appendAnswer(node, 13);
+        appendText(node, '。直到我開始動手做，我才發現');
+        appendAnswer(node, 14);
+        appendText(node, '。遇到問題／困難的時候，我的感覺是：');
+        appendAnswer(node, 15);
+        appendText(node, '。後來，我用「');
+        appendAnswer(node, 16);
+        appendText(node, '」的方式處理這個問題。');
+        appendAnswer(node, 17);
+        appendText(node, '也提供我幫助，讓我找到新的解決方式。接著，我又嘗試了');
+        appendAnswer(node, 18);
+        appendText(node, '。最後，');
+        appendAnswer(node, 19);
+        appendText(node, '。');
+      }
 
-      const part1 = `${a(2)}的「${a(1)}」是我在${a(3)}最有收穫的一個課程／活動。在這個課程／活動中，我跟${a(4)}一起體驗「${a(5)}」這個技能，也得到「${a(6)}」的成長。對我來說，這次最主要、最確實的收穫是：${a(7)}。`;
-      const part2 = `${a(2)}配合「${a(8)}」的課程，讓我們進行「${a(9)}」的任務。老師安排我們在${a(10)}執行任務，並讓我們使用${a(11)}。在過程中，老師也教我們「${a(12)}」這項技巧。`;
-      const part3 = `一開始，我覺得${a(13)}。直到我開始動手做，我才發現${a(14)}。遇到問題／困難的時候，我的感覺是：${a(15)}。後來，我用「${a(16)}」的方式處理這個問題。${a(17)}也提供我幫助，讓我找到新的解決方式。接著，我又嘗試了${a(18)}。最後，${a(19)}。`;
-      const part4 = `因為參與了${a(3)}、由${a(2)}指導的「${a(1)}」，我體會到${a(20)}。我會這樣想，是因為${a(21)}。後來真的完成任務之後，我發現自己改變了${a(22)}。因為這個活動，讓我希望自己接下來可以學習或改進${a(23)}。我也希望接下來可以用這次活動帶給我的收穫，去嘗試${a(24)}。`;
+      function renderPart4(node) {
+        clearNode(node);
+        appendText(node, '因為參與了');
+        appendAnswer(node, 3);
+        appendText(node, '、由');
+        appendAnswer(node, 2);
+        appendText(node, '指導的「');
+        appendAnswer(node, 1);
+        appendText(node, '」，我體會到');
+        appendAnswer(node, 20);
+        appendText(node, '。我會這樣想，是因為');
+        appendAnswer(node, 21);
+        appendText(node, '。後來真的完成任務之後，我發現自己改變了');
+        appendAnswer(node, 22);
+        appendText(node, '。因為這個活動，讓我希望自己接下來可以學習或改進');
+        appendAnswer(node, 23);
+        appendText(node, '。我也希望接下來可以用這次活動帶給我的收穫，去嘗試');
+        appendAnswer(node, 24);
+        appendText(node, '。');
+      }
 
-      return [part1, part2, part3, part4].join("
+      function buildPlainText(removeMarkers) {
+        var part1 = text(2, removeMarkers) + '的「' + text(1, removeMarkers) + '」是我在' + text(3, removeMarkers) + '最有收穫的一個課程／活動。在這個課程／活動中，我跟' + text(4, removeMarkers) + '一起體驗「' + text(5, removeMarkers) + '」這個技能，也得到「' + text(6, removeMarkers) + '」的成長。對我來說，這次最主要、最確實的收穫是：' + text(7, removeMarkers) + '。';
+        var part2 = text(2, removeMarkers) + '配合「' + text(8, removeMarkers) + '」的課程，讓我們進行「' + text(9, removeMarkers) + '」的任務。老師安排我們在' + text(10, removeMarkers) + '執行任務，並讓我們使用' + text(11, removeMarkers) + '。在過程中，老師也教我們「' + text(12, removeMarkers) + '」這項技巧。';
+        var part3 = '一開始，我覺得' + text(13, removeMarkers) + '。直到我開始動手做，我才發現' + text(14, removeMarkers) + '。遇到問題／困難的時候，我的感覺是：' + text(15, removeMarkers) + '。後來，我用「' + text(16, removeMarkers) + '」的方式處理這個問題。' + text(17, removeMarkers) + '也提供我幫助，讓我找到新的解決方式。接著，我又嘗試了' + text(18, removeMarkers) + '。最後，' + text(19, removeMarkers) + '。';
+        var part4 = '因為參與了' + text(3, removeMarkers) + '、由' + text(2, removeMarkers) + '指導的「' + text(1, removeMarkers) + '」，我體會到' + text(20, removeMarkers) + '。我會這樣想，是因為' + text(21, removeMarkers) + '。後來真的完成任務之後，我發現自己改變了' + text(22, removeMarkers) + '。因為這個活動，讓我希望自己接下來可以學習或改進' + text(23, removeMarkers) + '。我也希望接下來可以用這次活動帶給我的收穫，去嘗試' + text(24, removeMarkers) + '。';
 
-").replace(/[ 	]+/g, " ").trim();
-    }
+        return [part1, part2, part3, part4].join('
 
-    function render() {
-      const html = buildPreviewHtml();
-      document.getElementById("preview1").innerHTML = html.part1;
-      document.getElementById("preview2").innerHTML = html.part2;
-      document.getElementById("preview3").innerHTML = html.part3;
-      document.getElementById("preview4").innerHTML = html.part4;
-      document.getElementById("finalOutput").textContent = buildPlainText(false);
-    }
+').replace(/[ 	]+/g, ' ').trim();
+      }
 
-    function showToast(message) {
-      const toast = document.getElementById("toast");
-      toast.textContent = message;
-      toast.classList.add("show");
-      window.setTimeout(() => toast.classList.remove("show"), 1800);
-    }
+      function render() {
+        renderPart1(preview1);
+        renderPart2(preview2);
+        renderPart3(preview3);
+        renderPart4(preview4);
+        finalOutput.textContent = buildPlainText(false);
+      }
 
-    async function copyText(text) {
-      try {
-        await navigator.clipboard.writeText(text);
-        showToast("已複製到剪貼簿");
-      } catch (error) {
-        const temp = document.createElement("textarea");
-        temp.value = text;
+      function showToast(message) {
+        toast.textContent = message;
+        toast.className = 'toast show';
+        window.setTimeout(function () {
+          toast.className = 'toast';
+        }, 1800);
+      }
+
+      function fallbackCopy(textToCopy) {
+        var temp = document.createElement('textarea');
+        temp.value = textToCopy;
+        temp.setAttribute('readonly', '');
+        temp.style.position = 'fixed';
+        temp.style.left = '-9999px';
         document.body.appendChild(temp);
         temp.select();
-        document.execCommand("copy");
+        temp.setSelectionRange(0, temp.value.length);
+        try {
+          document.execCommand('copy');
+          showToast('已複製到剪貼簿');
+        } catch (error) {
+          showToast('複製失敗，請手動選取文字複製');
+        }
         document.body.removeChild(temp);
-        showToast("已複製到剪貼簿");
       }
-    }
 
-    document.querySelectorAll("input[data-q], textarea[data-q]").forEach((field) => {
-      field.addEventListener("input", (event) => {
-        answers[event.target.dataset.q] = event.target.value;
+      function copyText(textToCopy) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(textToCopy).then(function () {
+            showToast('已複製到剪貼簿');
+          }).catch(function () {
+            fallbackCopy(textToCopy);
+          });
+        } else {
+          fallbackCopy(textToCopy);
+        }
+      }
+
+      function bindInputEvents() {
+        var fields = document.querySelectorAll('input[data-q], textarea[data-q]');
+        for (var i = 0; i < fields.length; i += 1) {
+          fields[i].addEventListener('input', function (event) {
+            answers[event.target.getAttribute('data-q')] = event.target.value;
+            render();
+          });
+
+          fields[i].addEventListener('change', function (event) {
+            answers[event.target.getAttribute('data-q')] = event.target.value;
+            render();
+          });
+        }
+      }
+
+      function bindButtons() {
+        document.getElementById('copyAllTop').addEventListener('click', function () {
+          copyText(buildPlainText(false));
+        });
+
+        document.getElementById('copyAllBottom').addEventListener('click', function () {
+          copyText(buildPlainText(false));
+        });
+
+        document.getElementById('copyPlain').addEventListener('click', function () {
+          copyText(buildPlainText(true));
+        });
+
+        document.getElementById('clearAll').addEventListener('click', function () {
+          var confirmed = window.confirm('確定要清空所有填答內容嗎？');
+          if (!confirmed) {
+            return;
+          }
+
+          var fields = document.querySelectorAll('input[data-q], textarea[data-q]');
+          for (var i = 1; i <= totalQuestions; i += 1) {
+            answers[i] = '';
+          }
+          for (var j = 0; j < fields.length; j += 1) {
+            fields[j].value = '';
+          }
+          render();
+          showToast('已清空，可以重新填寫');
+        });
+      }
+
+      function init() {
+        bindInputEvents();
+        bindButtons();
         render();
-      });
-    });
+      }
 
-    document.getElementById("copyAllTop").addEventListener("click", () => copyText(buildPlainText(false)));
-    document.getElementById("copyAllBottom").addEventListener("click", () => copyText(buildPlainText(false)));
-    document.getElementById("copyPlain").addEventListener("click", () => copyText(buildPlainText(true)));
-
-    document.getElementById("clearAll").addEventListener("click", () => {
-      const confirmed = window.confirm("確定要清空所有填答內容嗎？");
-      if (!confirmed) return;
-      for (let i = 1; i <= totalQuestions; i += 1) answers[i] = "";
-      document.querySelectorAll("input[data-q], textarea[data-q]").forEach((field) => field.value = "");
-      render();
-      showToast("已清空，可以重新填寫");
-    });
-
-    render();
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    }());
   </script>
 </body>
 </html>
