@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!--
+  開發者署名：國立花蓮高工 柯貞伊老師
+  用途：學習歷程引導寫作頁
+  註記：請勿移除署名、冒用或改作為未註明來源之公開教學資源。
+-->
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
@@ -81,11 +86,21 @@
       line-height: 1.25;
     }
 
-    .subtitle {
-      max-width: 980px;
-      color: var(--muted);
-      font-size: 1.05rem;
-      margin: 0;
+    $1
+
+    .developer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(143, 169, 155, 0.18);
+      border: 1px solid rgba(95, 127, 112, 0.22);
+      color: #526f63;
+      font-size: 0.86rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
     }
 
     .main-layout {
@@ -385,10 +400,27 @@
       margin-top: 16px;
     }
 
-    .small-note {
-      color: var(--muted);
-      font-size: 0.9rem;
-      margin-top: 10px;
+    $1
+
+    .site-footer {
+      max-width: 1280px;
+      margin: -28px auto 44px;
+      padding: 0 24px;
+      color: #6f6258;
+      font-size: 0.88rem;
+      text-align: center;
+    }
+
+    .site-footer p {
+      margin: 0;
+      padding: 14px 18px;
+      border-radius: 999px;
+      background: rgba(255, 253, 249, 0.72);
+      border: 1px solid rgba(221, 212, 200, 0.7);
+    }
+
+    .site-footer strong {
+      color: #4f6f62;
     }
 
     @media (max-width: 980px) {
@@ -427,6 +459,8 @@
 <body>
   <header>
     <section class="hero" aria-labelledby="page-title">
+      <!-- 頁面可見署名：開發者資訊 -->
+      <div class="developer-badge" aria-label="開發者資訊">開發者：國立花蓮高工 柯貞伊老師</div>
       <h1 id="page-title">國立花蓮高工 學習歷程引導寫作頁</h1>
       <p class="subtitle">
         請同學根據自己想要做成學習歷程的課程或活動成果，回答下列問題，畫面右邊會即時出現你目前文字的合成果。請同學在完成問題回答之後，再回過頭去檢視自己的文字敘述，讀一讀，看是不是流暢的。溫馨提醒，請點開 Word、Google 文件、Canva 等你熟悉的編輯軟體，記得上傳文字與你剛剛得到的文字組合，便可以產生一個適合你的學習歷程作品。
@@ -535,6 +569,11 @@
     </div>
   </section>
 
+  <!-- 頁面底部可見署名與使用註記 -->
+  <footer class="site-footer" aria-label="開發者與授權註記">
+    <p>本頁面由 <strong>國立花蓮高工 柯貞伊老師</strong> 開發，供學習歷程寫作引導使用。請勿移除署名、冒用或改作為未註明來源之公開教學資源。</p>
+  </footer>
+
   <div class="toast" id="toast">已複製到剪貼簿</div>
 
   <script>
@@ -547,17 +586,12 @@
       return `<span class="placeholder">問題${number}尚未填寫</span>`;
     }
 
-    function getPlainAnswer(number) {
-      const value = (answers[number] || "").trim();
-      return value || `【問題${number}尚未填寫】`;
-    }
-
     function escapeHtml(text) {
       return text
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
+        .replace(/\"/g, "&quot;")
         .replace(/'/g, "&#039;");
     }
 
@@ -585,7 +619,9 @@
       const part3 = `一開始，我覺得${a(13)}。直到我開始動手做，我才發現${a(14)}。遇到問題／困難的時候，我的感覺是：${a(15)}。後來，我用「${a(16)}」的方式處理這個問題。${a(17)}也提供我幫助，讓我找到新的解決方式。接著，我又嘗試了${a(18)}。最後，${a(19)}。`;
       const part4 = `因為參與了${a(3)}、由${a(2)}指導的「${a(1)}」，我體會到${a(20)}。我會這樣想，是因為${a(21)}。後來真的完成任務之後，我發現自己改變了${a(22)}。因為這個活動，讓我希望自己接下來可以學習或改進${a(23)}。我也希望接下來可以用這次活動帶給我的收穫，去嘗試${a(24)}。`;
 
-      return [part1, part2, part3, part4].join("\n\n").replace(/[ \t]+/g, " ").trim();
+      return [part1, part2, part3, part4].join("
+
+").replace(/[ 	]+/g, " ").trim();
     }
 
     function render() {
